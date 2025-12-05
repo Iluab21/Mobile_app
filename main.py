@@ -17,11 +17,14 @@ class FirstScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         main_layout = BoxLayout(orientation = 'vertical')
-        name_input = TextInput()
+        name_input = TextInput(hint_text = 'Введите имя..', pos_hint = {'center_x': 0.5})
+        age_input = TextInput(hint_text = 'Введите ваш возраст', pos_hint = {'center_x': 0.5})
         next_screen_button = Button(text = 'Дальше', size_hint = (0.5, 0.3), pos_hint = {'center_x': 0.5})
         next_screen_button.on_press = self.set_second_screen
         label = Label(text = 'Надпись')
         main_layout.add_widget(label)
+        main_layout.add_widget(name_input)
+        main_layout.add_widget(age_input)
         main_layout.add_widget(next_screen_button)
         self.add_widget(main_layout)
     
